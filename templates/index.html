@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app='indexApp'>
+<head>
+	<title></title>
+	<script type="text/javascript" src='{{url_for("bower.static", filename="angular/angular.js")}}'></script>
+	<script type="text/javascript" src='{{url_for("bower.static", filename="bootstrap/dist/js/bootstrap.js")}}'></script>
+	<link rel="stylesheet" type="text/css" href='{{url_for("bower.static", filename="bootstrap/dist/css/bootstrap.css")}}'>
+	<link rel="stylesheet" type="text/css" href='{{url_for("static", filename="style.css")}}'>
+
+	<script type="text/javascript" src='{{url_for("static", filename="app.js")}}'></script>
+</head>
+<body ng-controller='indexController'>
+{%raw%}
+
+	<div class="col-md-offset-2 col-md-8 body" >
+		<div class="col-md-12">
+			<div class="form-inline">
+				<div class="form-group col-xs-3">
+					<label for='select-source'>Source:</label>
+					<select id='select-source' class="form-control" ng-model='filter.source'>
+						<option value="any"></option>
+						<option value="monster">Monster</option>
+						<option value="stepstone">Stepstone</option>
+					</select>
+				</div>
+				<div class="form-group col-xs-4">
+					<label for='title-input'>Title:</label>
+					<input id='title-input' class="form-control" ng-model='filter.like'/>
+				</div>
+			</div>
+			<button ng-click='getList(1,10)' class="btn">Submit</button>
+		</div>
+		<ul class="pagination pagination-lg">
+		 	<li ng-repeat='i in range(first_page, last_page)'>
+		 		<a ng-if='i!=current_page'  href="#" ng-click='getList(i, 10)'>{{i}}</a>
+		 	
+		 		<a ng-if='i==current_page' style="background-color: #f1f1f1" href="#" ng-click='getList(i, 10)'>{{i}}</a>
+		 	</li>
+		</ul>
+		<div ng-repeat='vacancy in list' class="row">
+			<div class="col-md-3">
+				<img ng-src="{{vacancy.image_path}}">
+			</div>
+			<div class="col-md-9">
+				<p class="vacancy-title">{{vacancy.title}}</p>
+				<p class="vacancy-company">{{vacancy.company_name}}</p>
+				<p class="vacancy-place">{{vacancy.place}}</p>
+				<p class="vacancy-source">{{vacancy.source}}</p>
+
+			</div>
+		</div>
+	</div>
+{%endraw%}
+</body>
+</html>

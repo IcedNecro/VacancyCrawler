@@ -1,0 +1,8 @@
+requests
+celery
+flask
+ipdb
+flask-sqlalchemy
+flask-bower
+psycopg2
+elasticsearch

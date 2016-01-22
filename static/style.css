@@ -1,0 +1,24 @@
+.vacancy-title {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+img {
+	width: 100%;
+}
+
+.vacancy-source {
+	font-size: 10px;
+	color: #a1a1a1;
+}
+
+.form-control {
+	float: right;
+}
+.row {
+	margin: 20px;
+	border-bottom: 1px solid #afafaf;
+}
+.body {
+	margin-top: 20px;
+}
